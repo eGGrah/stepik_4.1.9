@@ -22,23 +22,6 @@ class TestLoginFromMainPage:
         page.should_be_login_page()
 
 
-
-
-# def test_guest_can_go_to_login_page(browser):
-#     link = "http://selenium1py.pythonanywhere.com"
-#     page = MainPage(browser, link)
-#     page.open()
-#     login_page = page.go_to_login_page()
-#     login_page.should_be_login_page()
-
-# def test_guest_can_go_to_login_page(browser):
-#     link = "http://selenium1py.pythonanywhere.com"
-#     page = MainPage(browser, link)
-#     page.open()
-#     page.go_to_login_page()
-#     login_page = LoginPage(browser, browser.current_url)
-#     login_page.should_be_login_page()
-
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     link = 'http://selenium1py.pythonanywhere.com/'
     page = BasketPage(browser, link)
@@ -47,20 +30,18 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page.expect_no_products_in_basket()
     page.text_basket_empty()
 
-# def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
-#     link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/'
-#     page = ProductPage(browser, link)
-#     page.open()
-#     page.add_to_basket()
-#     assert page.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), 'j'
-#
-#
 
-#
-#
-# def test_message_disappeared_after_adding_product_to_basket(browser):
-#     link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/'
-#     page = ProductPage(browser, link)
-#     page.open()
-#     page.add_to_basket()
-#     assert page.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE)
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/'
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_basket()
+    assert page.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), 'j'
+
+
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/'
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_basket()
+    assert page.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE)
